@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Profile</title>
+    <style>
+        /* 1. The Main Background Color */
+        body {
+            background-color: #e0f7fa; /* Light Blue background */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+        }
+
+        /* 2. The White Card for Content */
+        .card {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 500px;
+            text-align: center;
+        }
+
+        /* 3. Styling the conditional result */
+        .status-strong {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .status-average {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        h1 { color: #007bff; }
+        h3 { color: #555; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>About Team</h1>
+        
+        <h2>Team Name : {{teamname}}</h2>
+        <h3>Trophies Won : {{trophys}}</h3>
+        
+        <hr> <h3>Squad List:</h3>
+        {% for i in players %}
+            <div style="background: #f9f9f9; margin: 5px; padding: 5px; border-radius: 4px;">
+                {{i}}
+            </div>
+        {% endfor %}
+
+        <br>
+
+        {% if trophys <= 3 %}
+            <div class="status-average">
+                <h1>Team is average</h1>
+            </div>
+        {% else %}
+            <div class="status-strong">
+                <h1>Team is strong</h1>
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>

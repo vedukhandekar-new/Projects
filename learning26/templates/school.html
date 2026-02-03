@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>About School</h1>
+    <h2>............</h2>
+      
+    <h2>School name : {{schoolname}}</h2>
+    <h2>Fees : {{fees}} </h2>
+        <h2>Activities : {{activities}}</h2>
+        {% for i in activities %}
+       <h3>{{i}}</h3>
+    {% endfor %}
+
+   <h1>if</h1>
+   {% if fees <= 20000 %}
+    <h1>School is cheap</h1>
+    {% else %}
+        <h1>School is Expensive</h1>
+   {% endif %}
+</body>
+</html>

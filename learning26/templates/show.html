@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My TV Shows</title>
+    <style>
+        /* --- Simple Design --- */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5; /* Light grey background */
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #222;
+        }
+
+        /* The Grid */
+        .shows-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Centers items in the middle */
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* The Show Card */
+        .show-card {
+            background: white;
+            width: 220px;
+            border-radius: 10px;
+            overflow: hidden; /* Clips the image corners */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .show-card:hover {
+            transform: translateY(-5px); /* Moves up slightly */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .show-card img {
+            width: 100%;
+            height: 140px; /* Shorter image for TV thumbnails */
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+            text-align: center;
+        }
+
+        h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.1rem;
+        }
+
+        .details {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        /* The Button */
+        .ep-btn {
+            display: block;
+            background-color: #007bff; /* Blue for Shows */
+            color: white;
+            padding: 8px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .ep-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📺 Favorite TV Series</h1>
+
+    <div class="shows-container">
+
+        <div class="show-card">
+            <img src="https://via.placeholder.com/220x140?text=Breaking+Bad" alt="Show Cover">
+            <div class="card-content">
+                <h3>Crime Drama</h3>
+                <p class="details">5 Seasons • Completed</p>
+                <a href="#" class="ep-btn">View Episodes</a>
+            </div>
+        </div>
+
+        <div class="show-card">
+            <img src="https://via.placeholder.com/220x140?text=Stranger+Things" alt="Show Cover">
+            <div class="card-content">
+                <h3>Sci-Fi Thriller</h3>
+                <p class="details">4 Seasons • Ongoing</p>
+                <a href="#" class="ep-btn">View Episodes</a>
+            </div>
+        </div>
+
+        <div class="show-card">
+            <img src="https://via.placeholder.com/220x140?text=The+Office" alt="Show Cover">
+            <div class="card-content">
+                <h3>Office Comedy</h3>
+                <p class="details">9 Seasons • Completed</p>
+                <a href="#" class="ep-btn">View Episodes</a>
+            </div>
+        </div>
+
+        <div class="show-card">
+            <img src="https://via.placeholder.com/220x140?text=Game+of+Thrones" alt="Show Cover">
+            <div class="card-content">
+                <h3>Fantasy Epic</h3>
+                <p class="details">8 Seasons • Completed</p>
+                <a href="#" class="ep-btn">View Episodes</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
