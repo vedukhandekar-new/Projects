@@ -98,6 +98,7 @@ def createCourse(request):
     
 
 def deleteEmployee(request,id):
+
     print("id from url = ",id)
     Employee.objects.filter(id=id).delete(  )
     return redirect("employeeList")
@@ -118,3 +119,15 @@ def sortemployees(request,id):
         employee = Employee.objects.order_by("-age").values()
     
     return render(request,"employee/employeeList.html",{"employees":employee})
+
+
+def updateEmployee(request, id):
+    employee = Employee.objects.get(id=id)
+
+    if request.method == "POST":
+        form = EmployeeForm(request.POST, instance=employee)
+        form.save()
+        return redirect("employeeList")
+    else:
+        form = EmployeeForm(instance=employee)
+        return render(request, "employee/updateEmployee.html", {"form": form})
