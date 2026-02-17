@@ -1,0 +1,24 @@
+<h2>Service List</h2>
+
+<a href="{% url 'service_create' %}">Add New Service</a>
+
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Duration</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for service in services %}
+    <tr>
+        <td>{{ service.service_name }}</td>
+        <td>{{ service.price }}</td>
+        <td>{{ service.duration }}</td>
+        <td>
+            <a href="{% url 'service_update' service.id %}">Edit</a>
+            <a href="{% url 'service_delete' service.id %}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>

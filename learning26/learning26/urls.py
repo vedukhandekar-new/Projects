@@ -31,10 +31,12 @@ urlpatterns = [
     path("recipe/",views.recipe),
     path("team/",views.team),
     path("school/",views.school),
-    path('employee/', include('employee.urls')),
+  #  path('employee/', include('employee.urls')),
 
 
-    path("student/",include("student.urls"))
+  #  path("student/",include("student.urls")),
+
+    path('services/', include('services.urls')),
     
 ]
 
