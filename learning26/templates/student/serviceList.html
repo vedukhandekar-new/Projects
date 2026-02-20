@@ -1,0 +1,49 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<div class="services-grid">
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+{% for service in services  %}
+    <div class="service-card">
+    <div class="card-image">
+      <img src="https://via.placeholder.com/400x300" alt="Service Image">
+    </div>
+    <div class="card-content">
+      <span class="service-category">{{service.categoryId.categoryName}}</span>
+      <h3 class="service-title">{{service.serviceName}}</h3>
+    </div>
+  </div>
+
+  <div class="card-body text-center">
+    <span class="badge bg-secondary">{{ service.category }}</span>
+    <h5 class="card-title mt-2">{{ service.name }}</h5>
+
+    <!-- Delete Button -->
+    
+
+    <form action="{% url 'deleteService' service.id %}" 
+      method="POST"
+      onsubmit="return confirm('Are you sure you want to delete this service?');">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger btn-sm">
+        Delete
+    </button>
+</form>
+
+</div>
+
+{% endfor %}
+
+    
+  </div>
+  {% endblock content %}

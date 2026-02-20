@@ -1,8 +1,11 @@
 from . import views
 
 from django.urls import path
+
+ 
+
 urlpatterns = [
-    path('employeeList/', views.employeeList,name="employeeList"),
+    path('employeeList/', views.employeeList, name='employeeList'),
     path('employeeFilter/', views.employeeFilter),
     path('createemployee/',views.createEmployee),
     path('createEmployeeWithForm/',views.createEmployeeWithForm,name="createEmployeeWithForm"),
@@ -10,6 +13,6 @@ urlpatterns = [
     path("deleteEmployee/<int:id>",views.deleteEmployee,name="deleteEmployee"),
     path("filterEmployee/",views.filterEmployee,name="filterEmployee"),
     path("sortemployees/<int:id>",views.sortemployees,name="sortemployees"),
-     path("updateemployee/<int:id>",views.updateEmployee,name="updateEmployee")
+    path("updateemployee/<int:id>",views.updateEmployee,name="updateEmployee")
     
 ]

@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 # Create your models here.
 
@@ -19,8 +20,7 @@ class User(models.Model):
         return self.full_name
 
 class Item(models.Model):
-    reporterID = models.ForeignKey(User, on_delete=models.CASCADE)
-
+    reporterID = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
     # Lost or Found
     report_type = models.CharField(max_length=10)
 

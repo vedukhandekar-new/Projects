@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 from . import views
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,12 +32,14 @@ urlpatterns = [
     path("recipe/",views.recipe),
     path("team/",views.team),
     path("school/",views.school),
-  #  path('employee/', include('employee.urls')),
+    path('employee/', include('employee.urls')),
 
 
-  #  path("student/",include("student.urls")),
+    path("student/",include("student.urls")),
 
     path('services/', include('services.urls')),
+    path('test-404/', TemplateView.as_view(template_name='404.html')),
+    path("core/",include("core.urls"))
     
 ]
 

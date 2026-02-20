@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    /* Specific styles just for the error page */
+    .error-page-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        min-height: 70vh;
+        text-align: left;
+        padding: 40px;
+        background-color: var(--card-bg);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        margin-top: 50px;
+    }
+    
+    .error-content h1 {
+        font-size: 100px;
+        margin: 0;
+        color: var(--primary-color);
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .error-content h2 {
+        font-size: 30px;
+        margin-top: -10px;
+    }
+
+    .error-image {
+        font-size: 150px; /* Make the emoji huge, or replace with an <img> tag */
+    }
+</style>
+
+<div class="container">
+    <div class="error-page-wrapper">
+        <div class="error-content">
+            <h1>404</h1>
+            <h2>OOPS! Page not found</h2>
+            <p>The page you are looking for does not exist or has been moved.</p>
+            <br>
+            <a href="/" class="btn btn-primary">Back to Home</a> 
+        </div>
+        
+        <div class="error-image float-anim">
+            👾
+            </div>
+    </div>
+</div>
+
+{% endblock %}

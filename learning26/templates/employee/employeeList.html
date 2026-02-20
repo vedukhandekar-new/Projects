@@ -1,37 +1,49 @@
-<h1>EMPLOYEE LIST</h1>
-<a href="{% url 'createEmployeeWithForm'%}">CREATE EMPLOYEE</a>
-<a href ="{% url 'filterEmployee' %}">FILTER</a>  
-<a href ="{% url 'sortemployees' 1 %}">Ascending</a> 
-<a href ="{% url 'sortemployees' 2 %}">Dsc</a> 
+{% extends 'base.html' %}
+{% block content %}
 
+<div class="container">
+    
+    <div class="action-bar">
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-bar" placeholder="Search employees...">
+        </div>
+        
+        <div class="button-group">
+            <a href="{% url 'createEmployeeWithForm' %}" class="btn btn-primary">+ Create Employee</a>
+            <a href="{% url 'filterEmployee' %}" class="btn btn-secondary">Filter</a>
+            
+            <button id="themeToggle" class="btn btn-secondary">🌙 Dark Mode</button>
+        </div>
+    </div>
 
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Salary</th>
-            <th>Join Date</th>
-            <th>Post</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for emp in employees  %}
-        <tr>
-            <td>{{emp.id}}</td>
-            <td>{{emp.name}}</td>
-            <td>{{emp.age}}</td>
-            <td>{{emp.salary}}</td>
-            <td>{{emp.join_date}}</td>
-            <td>{{emp.post}}</td>
-
-            <td>
-                  <a href = "{% url 'deleteEmployee' emp.id %}">DELETE</a>
-                  <a href = "{% url 'updateEmployee' emp.id %}">UPDATE</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Salary</th>
+                    <th>Join Date</th>
+                    <th>Post</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for emp in employees %}
+                <tr>
+                    <td>{{emp.id}}</td>
+                    <td>{{emp.name}}</td>
+                    <td>{{emp.age}}</td>
+                    <td>{{emp.salary}}</td>
+                    <td>{{emp.join_date}}</td>
+                    <td>{{emp.post}}</td>
+                    <td>
+                        <a href="{% url 'deleteEmployee' emp.id %}" class="action-link delete-link">DELETE</a>
+                         <a href="{% url 'updateEmployee' emp.id %}" class="action-link edit-link">update</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div> </div> {% endblock content %}
